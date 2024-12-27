@@ -1,9 +1,16 @@
-class ApiResponse extends response {
+class ApiResponse extends Response {
     constructor(
-        statusCode ,data,message ="success"
-    ){
+        statusCode, 
+        data, 
+        message = "success"
+    ) {
+        super(message)
         this.statuscode = statusCode,
-        this.data = data,
-        this.message = message
-        }
+            this.data = data,
+            this.message = message
+    }
 }
+
+
+
+export { ApiResponse }
