@@ -66,7 +66,7 @@ const userSchema =  new Schema(
     }
 
     userSchema.methods.generateAccesstoken = function(){
-        jwt.sign({
+        return   jwt.sign({
             _id : this._id,
             email : this.email,
             userName : this.userName,
@@ -79,7 +79,7 @@ const userSchema =  new Schema(
         )
     }
     userSchema.methods.generateRefreshtoken = function(){
-        jwt.sign({
+      return   jwt.sign({
             _id : this._id,
         },
         process.env.REFRESH_TOKEN_SECRET,
