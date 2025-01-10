@@ -4,7 +4,6 @@ import { User } from "../models/user.modal.js"
 import {uploadOnCloudinary} from "../utils/cloudnary.js"
 import { ApiResponse } from "../utils/ApiRespomse.js"
 import jwt from "jsonwebtoken"
-import { response } from "express"
 import mongoose from "mongoose"
 
 // method of generating access and refesh token
@@ -162,8 +161,8 @@ const logoutUser = asyncHandler(async(req ,res) =>{
   await User.findByIdAndUpdate(
    req.user._id,
    {
-      $set : {
-         refreshToken  :  undefined
+      $unset : {
+         refreshToken : 1 
       }
       
    },
@@ -260,13 +259,13 @@ const changeCurrentPassword = asyncHandler(async(req, res) => {
 
       return res
       .status(200)
-      .json( 200 ,{} , "Password Change Successful")
+      .json( new ApiResponse(200 , user , "Password Change Successfully "))
 })
    
 const getCurrentUser = asyncHandler(async(req , res) => {
       return res
       .status(200)
-      .json(200 , res.user , "User Fetched Successfully")
+      .json(new ApiResponse(200 , res.user , "User Fetched Successfully"))
 })
 
 const updateUserDetails = asyncHandler(async(req , res) => {
@@ -285,7 +284,7 @@ const updateUserDetails = asyncHandler(async(req , res) => {
 
             return res 
             .status(200)
-            .json( 200 , user , "Details updated successfully ")
+            .json( new ApiResponse(200 , user , "User Details Updated Successfully "))
 
 })
 
