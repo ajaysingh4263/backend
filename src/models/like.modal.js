@@ -1,6 +1,4 @@
-import { timeStamp } from "console"
 import mongoose ,{Schema} from "mongoose "
-import { type } from "os"
 
 
 const likeSchema =  new  Schema(
