@@ -36,7 +36,7 @@ const userRegister = asyncHandler(async ( req ,res) => {
 
    // gettiing user data 
    const {fullName ,userName , email ,password ,}  =  req.body
-   console.log('emial--' , email)
+   console.log('emial--' , email)   
 
    if(
       [fullName ,userName , email ,password].some((field) => field?.trim() === "")

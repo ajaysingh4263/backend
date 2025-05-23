@@ -50,7 +50,7 @@ router.route("/update-video").patch(
     ),
 
     updateVideo)
-    router.route("/delete-video").delete(deleteVideo)
+    router.route("/delete-video/:videoId").delete(deleteVideo)
     router.route("/toggle/publish/:videoId").patch(togglePublishStatus)
 
 
