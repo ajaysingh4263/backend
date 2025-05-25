@@ -42,6 +42,10 @@ const videoSchema = new Schema({
     owner: {
         type: Schema.Types.ObjectId,
         ref: " User"
+    },
+    playList :{
+        type : Schema.Types.ObjectId,
+        ref : "PlayList"
     }
 
 },
