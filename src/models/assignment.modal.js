@@ -12,7 +12,8 @@ const assignmentSchema = new Schema(
         
         file :{
             _id : {type : String},
-            url : { type : String}
+            url : { type : String},
+            
         },
 
         video : {
